@@ -1,0 +1,34 @@
+# Project: Проект1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = 12,01,2021/main.o 12,01,2021/zad1.o lab_1/zad2.o
+LINKOBJ  = 12,01,2021/main.o 12,01,2021/zad1.o lab_1/zad2.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -mwindows
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = PS-12,01,2021.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+12,01,2021/main.o: 12,01,2021/main.c
+	$(CC) -c 12,01,2021/main.c -o 12,01,2021/main.o $(CFLAGS)
+
+12,01,2021/zad1.o: 12,01,2021/zad1.c
+	$(CC) -c 12,01,2021/zad1.c -o 12,01,2021/zad1.o $(CFLAGS)
+
+lab_1/zad2.o: lab_1/zad2.c
+	$(CC) -c lab_1/zad2.c -o lab_1/zad2.o $(CFLAGS)
